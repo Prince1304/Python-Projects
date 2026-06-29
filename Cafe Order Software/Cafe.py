@@ -4,7 +4,7 @@ menu = {
     "Pasta":70,"Milk":90,
 }
 
-print("Welcome to the Gen-Z Restrarant")
+print("Welcome to the Gen-Z Cafe")
 name = input("Please enter your name: ").capitalize()
 print(f"Hii,{name}\nPlease Order Something For Better Experience")
 
@@ -54,7 +54,7 @@ print("Your Order Place!")
 Table = ['A1','A2','A3','A4','A5']
 
 print(f"Your Table Number Is '{Table[0]}' Please Be Seated!")
-print("Thank For Trust on Gen-Z Restrarant")
+print("Thank For Trust on Gen-Z Cafe")
 
 print("-"*50)
 print("\n")

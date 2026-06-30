@@ -38,7 +38,7 @@ To execute the application, ensure you have **Python 3.x** installed on your sys
    cd "path/to/your/Python Projects/Mart Software"
 
 ### Run the application script
-python Gen-Z_Mart.py
+python Mart.py
 
 ## 💻 Application Workflow Example
 

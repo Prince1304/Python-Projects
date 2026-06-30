@@ -1,31 +1,79 @@
-# Python Cafe Software
+# ☕ Gen-Z Cafe - Automated Billing & Kitchen Routing System
 
-## How to Use
-1. Run The Code By typing " python Cafe.py".
-2. Enter Your Good Name.
-3. Enter The Menu Item One by One.
-4. On Press "o" or "O" For Place Order.
-5. After placing an order, you see the bill with a payment option.
-6. On Choose Online Mode, please enter the UPI ID and Transition ID.
-7. After Entering This Now You See The Table Number.
-8. For Cafe Use, you see the table number, menu item list, and also payment mode with an appropriate message or Data.
+Gen-Z Cafe is a console-based ordering, billing, and restaurant management script written in Python. It handles front-of-house customer interactions—including dynamic menu presentation, input validation, cart calculations, and payment tracking—while automatically routing order tickets to back-of-house kitchen displays with active table tracking.
 
-## This Software Feature
-1. Show the Cafe Menu with good styling.
-2. Input User Name Greeting by name of User.
-3. Enter the Menu Item Name.
-4. On Press "o" then order all items.
-5. Show the Order Item with Appropriate Bill Amount.
-6. Ask the user to select the payment option: cash or online.
-7. For the Online Option, also ask User for enter the UPI ID and Transition ID.
-8. After Completing Pyment User can see the appropriate message with the name and Table Number.
-9. For Cafe, show the Table Number and Order Item List.
-10. Also, show the Order Payment Mode. If the payment is cash, so show the appropriate message; else, show the Upi ID or TID.
+## ✨ Features
 
-## Cover Python Concept 
-1. while loop
-2. For loop
-3. Conditional Statement
-4. Input & Print concept
-5. Dictionary
-6. Pop and Append
+* **Dynamic Customer Onboarding:** Greets users by name and presents an interactive menu dynamically parsed from a dictionary map.
+* **Safe Order Accumulation:** Real-time checking against the menu keys prevents invalid orders, prompting immediate feedback for unavailable items.
+* **Smart Billing Generation:** Cross-references the active cart array to parse items, automatically tallies item quantities, and updates total pricing values.
+* **Dual Payment Processing Architecture:** Routes workflows depending on whether the user selects "Cash" or "Online" (requiring mock UPI and Transaction IDs).
+* **Automated Table Allocation:** Dynamically queues available tables from an active array and safely pops them once assigned.
+* **Kitchen Ticket Generation:** Automatically generates a formatted summary receipt detailing precise item indexes, quantities, payment details, and table locations for the restaurant staff.
+
+---
+
+## 🚀 Getting Started
+### Prerequisites
+Requires Python 3.x environment. No external packaging or libraries (pip) are necessary.
+
+### Execution Instructions
+1. Save the program script code as GenZ_Cafe.py.
+2. Access your system terminal application.
+3. Boot the console script runner:
+   Save the program script code as Cafe.py.
+
+Access your system terminal application.
+
+Boot the console script runner:
+
+## 💻 Application Workflow Example
+
+### Front-of-House Customer Menu & Order
+
+```text
+Welcome to the Gen-Z Cafe
+Please enter your name: Prince
+Hii, Prince
+Please Order Something For Better Experience
+Cofee is only for $80
+Chai is only for $30
+Burger is only for $40
+Pizza is only for $50
+Pasta is only for $70
+Milk is only for $90
+--------------------------------------------------
+Prince if You Complete Add Item Press O For Order!
+--------------------------------------------------
+Please enter your item: Burger
+Please enter your item: Chai
+Please enter your item: Pizza
+Please enter your item: O
+--------------------------------------------------
+Wow Prince, Such A Great Test!
+Your Order Is
+Burger*3 :$40
+Chai*2 :$30
+Pizza*1 :$50
+Total Bill Is :$120
+Please Enter A Payment Mode (Cash/Online): Online
+Please Enter Your Upi ID: prince@ybl
+Please Enter Your Transition ID: TXN987654321
+Your Order Place!
+Your Table Number Is 'A1' Please Be Seated!
+Thank For Trust on Gen-Z Cafe
+--------------------------------------------------
+```
+
+### Back-of-House Kitchen Routing Ticket
+```
+For Restrarant
+Order Arrive From Table No: A1
+1: Burger
+2: Chai
+3: Pizza
+Total 3 Item Order Found From Table No: A1.
+Order Payment Mode: Online
+Order Upi ID: prince@ybl
+Order Transition ID: TXN987654321
+```

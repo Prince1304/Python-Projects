@@ -42,17 +42,16 @@ python Gen-Z_Mart.py
 
 ## 💻 Application Workflow Example
 ### Main Dashboard Interface
-===================================
-Welcome to Gen-Z Mart
-===================================
-            Choose Option
------------------------------------
-1. View Order History & Sales
-2. Item Menu (Place Order)
-3. Stock Report
-4. Add Stock (Restock)
-0. Exit
-Please Select an Option:
+=============================================================================================================================
+                                                 ALL ORDER LOGS & SALES HISTORY
+-----------------------------------------------------------------------------------------------------------------------------
+Idx   Order ID     Items Purchased                Total Price  UPI ID          Trans ID     Trans Date
+-----------------------------------------------------------------------------------------------------------------------------
+0     #xKd83421    Apple, Milk, Oil               $180         merchant@upi    98274392     2026-06-30 15:02:11
+1     #LpQ19482    Water, Salt                    $30          Cash            0            2026-06-30 15:05:43
+-----------------------------------------------------------------------------------------------------------------------------
+                                                 GRAND TOTAL STORE REVENUE =    $210
+=============================================================================================================================
 
 ### Consolidated Order Log Receipt View
 When viewing order histories, multiple bought items are aggregated neatly into one cell box alongside transactional meta-logs:

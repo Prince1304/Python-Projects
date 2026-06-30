@@ -41,22 +41,22 @@ To execute the application, ensure you have **Python 3.x** installed on your sys
 python Gen-Z_Mart.py
 
 ## 💻 Application Workflow Example
-## 💻 Application Workflow Example
 
 ### Main Dashboard Interface
 
 ```
-================================================== Welcome to Gen-Z Mart ====================================================
-                                                      Choose Option
------------------------------------------------------------------------------------------------------------------------------
+===== Welcome to Gen-Z Mart =====
+      Choose Option
+---------------------------------
 1. View Order History & Sales
 2. Item Menu (Place Order)
 3. Stock Report
 4. Add Stock (Restock)
-5. Exit 
+5. Exit
+---------------------------------
 Please Select an Option:
 ```
-### Consolidated Order Log Receipt View
+### Order Log Receipt View
 ```
 =============================================================================================================================
                                                  ALL ORDER LOGS & SALES HISTORY
@@ -68,4 +68,22 @@ Idx   Order ID     Items Purchased                Total Price  UPI ID          T
 -----------------------------------------------------------------------------------------------------------------------------
                                                  GRAND TOTAL STORE REVENUE =    $210
 =============================================================================================================================
+```
+### Add Stock View (Restock Inventory)
+```
+==================================================
+                RESTOCK INVENTORY
+--------------------------------------------------
+1. Apple           (Current Stock: 20)
+2. Milk            (Current Stock: 10)
+3. Water           (Current Stock: 0)
+4. Oil             (Current Stock: 5)
+5. Wheat Flour     (Current Stock: 5)
+6. Salt            (Current Stock: 10)
+7. Sugar           (Current Stock: 15)
+--------------------------------------------------
+Enter Item Number to add stock (or 0 to cancel): 3
+Enter quantity of Water to add: 50
+
+Successfully added stock! New Water stock: 50
 ```

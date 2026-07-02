@@ -11,4 +11,11 @@ Standard Python Project used for Daily life and Business
   - Place Order Option
   - Genrate Bill
   - View Daily Sales And Report 
-  - Stock Management 
+  - Stock Management
+
+## Project-3
+- Library Software
+  - Add Book with Security
+  - Remove Book with Security
+  - Show Book List
+  - Order Book 

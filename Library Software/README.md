@@ -39,8 +39,8 @@ self.Books             List of Lists   [Book Name, Price, Quantity, Author, Logg
 self.Order             List of Lists   [Book Name, Price, Ordered Qnty, Author, Logged Date, Order Timestamp]
 
 ### ⚙️ Core Logic Implementations
-    Stock Tracking: Substracts current values seamlessly using simple step modifiers book[2] -= 1 immediately when items are added to a customer bag.
-    Safe Order Appending: Uses list copying strategies via .copy() routines to preserve main catalog arrays without corrupting operational timestamps inside previous           customer purchases.
+   Stock Tracking: Substracts current values seamlessly using simple step modifiers book[2] -= 1 immediately when items are added to a customer bag.
+   Safe Order Appending: Uses list copying strategies via .copy() routines to preserve main catalog arrays without corrupting operational timestamps inside previous           customer purchases.
 
 ### 🚀 How To Navigate The App
 ```

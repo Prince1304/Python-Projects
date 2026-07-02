@@ -99,8 +99,10 @@ class Book:
                 print(f"{Book_name} has been removed from the Books List.")
                 print("-" * 50)
             else:
+                print("-" * 50)
                 print("Please Enter a Valid Book Name.")
-
+                print("-" * 50)
+    
     def showBooks(self):
         column = ["Index","Book Name", "Book Price", "Book Quantity", "Book Author", "Book Date"]
         Inx = 1

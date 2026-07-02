@@ -25,4 +25,24 @@ Make sure you have [Python 3.x](https://www.python.org/) installed on your local
 
 ```bash
 python library.py
+```
+
+### 🗝️ Admin Credentials
+To access restricted management choices (1 or 2), use these built-in default settings:
+   Admin Password: admin123
+   Note: Entering the wrong password 3 times triggers an automated 60-second lockout timer for security purposes.
+
+### 📁 System Data Structures
+The system tracks library assets using an organized sequence list design:
+AttributeStructure     TypeData        Contained
+self.Books             List of Lists   [Book Name, Price, Quantity, Author, Logged Date]
+self.Order             List of Lists   [Book Name, Price, Ordered Qnty, Author, Logged Date, Order Timestamp]
+
+### ⚙️ Core Logic Implementations
+    Stock Tracking: Substracts current values seamlessly using simple step modifiers book[2] -= 1 immediately when items are added to a customer bag.
+    Safe Order Appending: Uses list copying strategies via .copy() routines to preserve main catalog arrays without corrupting operational timestamps inside previous           customer purchases.
+
+### 🚀 How To Navigate The App
+```
+When you launch the script, you are greeted with a main menu selection workflow:
 

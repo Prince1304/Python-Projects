@@ -98,6 +98,19 @@ Try After 1 Minute.
 Enter Password (3 try left):
 ```
 
+## Choice 2: Successful Book Removal
+### Book Removal with also Check book in library if not so show message to user.
+```
+Enter Book Name: Harry Potter
+--------------------------------------------------
+Please Enter a Valid Book Name.
+--------------------------------------------------
+Enter Book Name: kp
+--------------------------------------------------
+kp has been removed from the Books List.
+--------------------------------------------------
+```
+
 ## Choice 3: Show Books (Initial Catalog)
 ### If you view the catalog immediately, it shows the pre-loaded hardcoded book "Ai + Me".
 ```

@@ -1,14 +1,15 @@
 import csv
+import os
 import time
 import pandas as pd
 
+
 class Cars:
-    name = ""
     def __init__(self):
         print("=" * 100)
-        name = input("Enter your Good name: ")
+        self.name = input("Enter your Good name: ")
         print("=" * 100)
-        print(f"Welcome {name} to Gen-Z Car Showroom")
+        print(f"Welcome {self.name} to Gen-Z Car Showroom")
         while True:
             print("=" * 100)
             print(f"{'Gen-Z Car Showroom Menu':^100}")
@@ -16,46 +17,85 @@ class Cars:
             print("1. Add Cars")
             print("2. Remove Cars")
             print("3. Show Cars")
+            print("4. Buy Cars")
+            print("5. View Orders")
             print("0. Exit")
-            print("="*100)
-            choice = input(f"{name} Please Enter your choice: ")
+            print("=" * 100)
+            choice = input(f"{self.name} Please Enter your choice: ")
             print("I Am Opening...")
-            # time.sleep(3)
             if choice == "1":
                 self.addcars()
             elif choice == "2":
                 self.removecar()
             elif choice == "3":
                 self.showcars()
+            elif choice == "4":
+                self.buycar()
+            elif choice == "5":
+                self.vieworder()
             elif choice == "0":
                 self.out()
+                break
             else:
-                print(f"{name} Please Enter a valid Choice!")
+                print(f"{self.name} Please Enter a valid Choice!")
 
-       def addcars(self):
-        car_name = input("Enter your car's name: ")
+    def addcars(self):
+        while True:
+            cname = input("Enter your car's name: ")
+            try:
+                df = pd.read_csv("cars.csv")
+                df.columns = df.columns.str.strip()
+                match = df[
+                    (df["Car Name"].astype(str).str.lower() == cname.lower())
+                    & (df["Status"] == "For Sale")
+                ]
+                if not match.empty:
+                    print(
+                        f"{self.name}, a car named '{cname}' is already listed 'For Sale'! Choose a unique name."
+                    )
+                    continue
+                else:
+                    car_name = cname
+                    break
+            except FileNotFoundError:
+                car_name = cname
+                break
+
         car_company = input("Enter your car's company: ")
-        price = input("Enter your car's price: ")
+
+        while True:
+            try:
+                price = int(input("Enter your car's price: "))
+                break
+            except ValueError:
+                print("Please enter a valid numeric value for price!")
+
         car_model = input("Enter your car's model: ")
 
-        # 1. Validate Model Year
         while True:
-            my = int(input("Enter your car's model year: "))
-            if my > 2020:
-                model_year = my
-                break
-            print(f"{self.name} Please enter only above '2020' Cars Models!")
+            try:
+                my = int(input("Enter your car's model year: "))
+                if my > 2020:
+                    model_year = my
+                    break
+                print(
+                    f"{self.name} Please enter only above '2020' Cars Models!"
+                )
+            except ValueError:
+                print("Please enter a valid numeric year!")
 
-        # 2. Validate Running KM
         while True:
-            rk = int(input("Enter your car's runing km: "))
-            if rk < 45000:
-                runing_km = ''
-                runing_km = rk
-                break
-            print(f"{self.name} Please enter a Under '45000'km Runing Cars!")
+            try:
+                rk = int(input("Enter your car's runing km: "))
+                if rk < 45000:
+                    runing_km = rk
+                    break
+                print(
+                    f"{self.name} Please enter a Under '45000'km Runing Cars!"
+                )
+            except ValueError:
+                print("Please enter a valid numeric kilometer value!")
 
-        # 3. Validate Condition
         while True:
             cond = input("Enter your car's condition(Good/Excellent): ")
             if cond in ["Good", "Excellent"]:
@@ -65,7 +105,6 @@ class Cars:
                 f"{self.name} Please enter 'Good' or 'Excellent' car conditions!"
             )
 
-        # Create a dictionary of the new car details
         new_car_data = {
             "Car Name": [car_name],
             "Company": [car_company],
@@ -79,30 +118,31 @@ class Cars:
         new_df = pd.DataFrame(new_car_data)
 
         try:
-            # Check if file exists to determine if we need to write headers
-            try:
-                pd.read_csv("cars.csv")
-                file_exists = True
-            except FileNotFoundError:
-                file_exists = False
-
-            # Append to CSV using mode='a'
+            file_exists = os.path.exists("cars.csv")
             new_df.to_csv(
                 "cars.csv", mode="a", index=False, header=not file_exists
             )
             print(f"🎉 {car_name} is Added Successfully!")
-
         except PermissionError:
             print(
                 f"❌ Sorry! {self.name}, close your 'cars.csv' file in Excel and try again!"
             )
-            
+
     def removecar(self):
         car_name = input("Enter your car's name: ")
-        df = pd.read_csv('cars.csv')
-        df.loc[df['Car Name'].str.lower() == car_name.lower(), 'Status'] = 'Not For Sale'
-        df.to_csv('cars.csv', index=False)
-        print(f"{car_name} is Removed Successfully!")
+        try:
+            df = pd.read_csv("cars.csv")
+            df.columns = df.columns.str.strip()
+            df.loc[
+                df["Car Name"].astype(str).str.lower() == car_name.lower(),
+                "Status",
+            ] = "Not For Sale"
+            df.to_csv("cars.csv", index=False)
+            print(f"{car_name} is Removed Successfully!")
+        except FileNotFoundError:
+            print("❌ No cars available in the system yet.")
+        except PermissionError:
+            print("❌ System files are locked. Close Excel and try again.")
 
     def showcars(self):
         try:
@@ -111,20 +151,96 @@ class Cars:
             print(f"{self.name} Please enter a valid number for your budget!")
             return
 
-        df = pd.read_csv("cars.csv")
-        df.columns = df.columns.str.strip()
-        matching_cars = df[(df["Price"] <= budget) & (df["Status"] == "For Sale")]
+        try:
+            df = pd.read_csv("cars.csv")
+            df.columns = df.columns.str.strip()
+            matching_cars = df[
+                (df["Price"] <= budget) & (df["Status"] == "For Sale")
+            ]
 
-        if matching_cars.empty:
-            print(f"No Match Found!")
-        else:
-            print("\n--- Matching Cars in Your Budget ---")
-            for _, row in matching_cars.iterrows():
+            if matching_cars.empty:
+                print(f"No Match Found!")
+            else:
+                print("\n--- Matching Cars in Your Budget ---")
+                for _, row in matching_cars.iterrows():
+                    print(
+                        f"{row['Car Name']} - {row['Year']} Model only for ₹{row['Price']}."
+                    )
                 print(
-                    f"{row['Car Name']} - {row['Model Year']} Model only for ₹{row['Price']}."
+                    f"\nTotal {len(matching_cars)} cars found in your budget!"
                 )
-            print(
-                f"\nTotal {len(matching_cars)} cars found in your budget!"
+        except FileNotFoundError:
+            print("❌ No cars available in the system yet.")
+
+    def buycar(self):
+        car_name = input("Enter the car name you want to buy: ")
+        try:
+            df = pd.read_csv("cars.csv")
+            df.columns = df.columns.str.strip()
+
+            match = df[
+                (df["Car Name"].astype(str).str.lower() == car_name.lower())
+                & (df["Status"] == "For Sale")
+            ]
+
+            if match.empty:
+                print(f"❌ {self.name}, that car is not available for sale!")
+                return
+
+            idx = match.index[0]
+            car_row = match.iloc[0]
+
+            df.at[idx, "Status"] = "Sold"
+            df.to_csv("cars.csv", index=False)
+
+            order_data = {
+                "Buyer": [self.name],
+                "Car Name": [car_row["Car Name"]],
+                "Company": [car_row["Company Name"]],
+                "Price": [car_row["Price"]],
+                "Model": [car_row["Model"]],
+            }
+            order_df = pd.DataFrame(order_data)
+
+            order_file_exists = os.path.exists("orders.csv")
+            order_df.to_csv(
+                "orders.csv",
+                mode="a",
+                index=False,
+                header=not order_file_exists,
             )
+            print(f"🎉 Success! You have purchased the {car_row['Car Name']}!")
+
+        except FileNotFoundError:
+            print("❌ No cars available in the system yet.")
+        except PermissionError:
+            print("❌ System files are locked. Close Excel and try again.")
+
+    def vieworder(self):
+        try:
+            df = pd.read_csv("orders.csv")
+            df.columns = df.columns.str.strip()
+
+            buyer_column = df["Buyer"].astype(str)
+            my_orders = df[buyer_column.str.lower() == self.name.lower()]
+
+            if my_orders.empty:
+                print(f"ℹ️ {self.name}, you haven't bought any cars yet!")
+            else:
+                print(f"\n--- Order History for {self.name} ---")
+                for _, row in my_orders.iterrows():
+                    print(
+                        f"Car: {row['Car Name']} | Company: {row['Company']} | Price: ₹{row['Price']} | Model: {row['Model']}"
+                    )
+                print(f"Total cars purchased: {len(my_orders)}")
+
+        except FileNotFoundError:
+            print("ℹ️ No orders have been placed in the system yet.")
+
+    def out(self):
+        print("=" * 100)
+        print("I Hope you Enjoy with our Cars!")
+        print("=" * 100)
+
 
 cars = Cars()

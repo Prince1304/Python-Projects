@@ -34,7 +34,7 @@ pip install pandas
 ```
 ### 3. Run Software
 ```
-python Carforsale.py
+python Carshowroom.py
 ```
 
 ## 🚀 How to Navigate the Dealership

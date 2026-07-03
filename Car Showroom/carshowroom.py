@@ -38,8 +38,30 @@ class Cars:
                 break
             else:
                 print(f"{self.name} Please Enter a valid Choice!")
-
+    
+    def security(self):
+        print("=" * 50)
+        print("This Only For Authorise Use")
+        print("=" * 50)
+        attempt = 3
+        while True:
+            if attempt == 0:
+                print("Warning! You not Entering.")
+                print("Try After 1 Minute.")
+                time.sleep(60)
+                attempt+=3
+            else:
+                password = input(f"Enter Password ({attempt} try left): ")
+                if password == "admin123":
+                    print("Welcome Admin!")
+                    print("=" * 50)
+                    return
+                else:
+                    print("Please Enter a Valid Password")
+                    attempt -= 1
+                    
     def addcars(self):
+        self.security()
         while True:
             cname = input("Enter your car's name: ")
             try:
@@ -129,6 +151,7 @@ class Cars:
             )
 
     def removecar(self):
+        self.security()
         car_name = input("Enter your car's name: ")
         try:
             df = pd.read_csv("cars.csv")

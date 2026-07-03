@@ -32,43 +32,70 @@ class Cars:
             else:
                 print(f"{name} Please Enter a valid Choice!")
 
-    def addcars(self):
-        try:
-            car_name = input("Enter your car's name: ")
-            car_company = input("Enter your car's company: ")
-            price = input("Enter your car's price: ")
-            car_model = input("Enter your car's model: ")
-            while True:
-                model_year = ''
-                my = int(input("Enter your car's model year: "))
-                if my > 2020:
-                    my = model_year
-                    break
-                else:
-                    print(f"{self.name} Please enter a only above '2020' Cars Models!")
-            while True:
+       def addcars(self):
+        car_name = input("Enter your car's name: ")
+        car_company = input("Enter your car's company: ")
+        price = input("Enter your car's price: ")
+        car_model = input("Enter your car's model: ")
+
+        # 1. Validate Model Year
+        while True:
+            my = int(input("Enter your car's model year: "))
+            if my > 2020:
+                model_year = my
+                break
+            print(f"{self.name} Please enter only above '2020' Cars Models!")
+
+        # 2. Validate Running KM
+        while True:
+            rk = int(input("Enter your car's runing km: "))
+            if rk < 45000:
                 runing_km = ''
-                rk = int(input("Enter your car's runing km: "))
-                if rk < 45000:
-                    rk = runing_km
-                    break
-                else:
-                    print(f"{self.name} Please enter a Under '45000'km Runing Cars!")
-            while True:
-                car_condition = ''
-                cond = input("Enter your car's condition(Good/Excellent): ")
-                if cond == 'Good' or cond == 'Excellent':
-                    car_condition = cond
-                    break
-                else:
-                    print(f"{self.name} Please enter a 'Good' or 'Excellent' car conditions! ")
-            with open('cars.csv', 'a',newline='') as csvfile:
-                writer = csv.writer(csvfile)
-                status = 'For Sale'
-                writer.writerow([car_name, car_company, price, car_model, model_year,runing_km, car_condition, status])
-                print(f"{car_name} is Added Successfully!")
-        except FileNotFoundError:
-            print(f"Sorry! {self.name}, File Not Open Try Again")
+                runing_km = rk
+                break
+            print(f"{self.name} Please enter a Under '45000'km Runing Cars!")
+
+        # 3. Validate Condition
+        while True:
+            cond = input("Enter your car's condition(Good/Excellent): ")
+            if cond in ["Good", "Excellent"]:
+                car_condition = cond
+                break
+            print(
+                f"{self.name} Please enter 'Good' or 'Excellent' car conditions!"
+            )
+
+        # Create a dictionary of the new car details
+        new_car_data = {
+            "Car Name": [car_name],
+            "Company": [car_company],
+            "Price": [price],
+            "Model": [car_model],
+            "Year": [model_year],
+            "KM": [runing_km],
+            "Condition": [car_condition],
+            "Status": ["For Sale"],
+        }
+        new_df = pd.DataFrame(new_car_data)
+
+        try:
+            # Check if file exists to determine if we need to write headers
+            try:
+                pd.read_csv("cars.csv")
+                file_exists = True
+            except FileNotFoundError:
+                file_exists = False
+
+            # Append to CSV using mode='a'
+            new_df.to_csv(
+                "cars.csv", mode="a", index=False, header=not file_exists
+            )
+            print(f"🎉 {car_name} is Added Successfully!")
+
+        except PermissionError:
+            print(
+                f"❌ Sorry! {self.name}, close your 'cars.csv' file in Excel and try again!"
+            )
             
     def removecar(self):
         car_name = input("Enter your car's name: ")

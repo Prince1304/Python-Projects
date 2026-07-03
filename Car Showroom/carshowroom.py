@@ -31,3 +31,41 @@ class Cars:
                 self.out()
             else:
                 print(f"{name} Please Enter a valid Choice!")
+
+    def addcars(self):
+        try:
+            car_name = input("Enter your car's name: ")
+            car_company = input("Enter your car's company: ")
+            price = input("Enter your car's price: ")
+            car_model = input("Enter your car's model: ")
+            while True:
+                model_year = ''
+                my = int(input("Enter your car's model year: "))
+                if my > 2020:
+                    my = model_year
+                    break
+                else:
+                    print(f"{self.name} Please enter a only above '2020' Cars Models!")
+            while True:
+                runing_km = ''
+                rk = int(input("Enter your car's runing km: "))
+                if rk < 45000:
+                    rk = runing_km
+                    break
+                else:
+                    print(f"{self.name} Please enter a Under '45000'km Runing Cars!")
+            while True:
+                car_condition = ''
+                cond = input("Enter your car's condition(Good/Excellent): ")
+                if cond == 'Good' or cond == 'Excellent':
+                    car_condition = cond
+                    break
+                else:
+                    print(f"{self.name} Please enter a 'Good' or 'Excellent' car conditions! ")
+            with open('cars.csv', 'a',newline='') as csvfile:
+                writer = csv.writer(csvfile)
+                status = 'For Sale'
+                writer.writerow([car_name, car_company, price, car_model, model_year,runing_km, car_condition, status])
+                print(f"{car_name} is Added Successfully!")
+        except FileNotFoundError:
+            print(f"Sorry! {self.name}, File Not Open Try Again")

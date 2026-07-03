@@ -69,3 +69,35 @@ class Cars:
                 print(f"{car_name} is Added Successfully!")
         except FileNotFoundError:
             print(f"Sorry! {self.name}, File Not Open Try Again")
+            
+    def removecar(self):
+        car_name = input("Enter your car's name: ")
+        df = pd.read_csv('cars.csv')
+        df.loc[df['Car Name'].str.lower() == car_name.lower(), 'Status'] = 'Not For Sale'
+        df.to_csv('cars.csv', index=False)
+        print(f"{car_name} is Removed Successfully!")
+
+    def showcars(self):
+        try:
+            budget = int(input(f"{self.name} Enter Your Budget: "))
+        except ValueError:
+            print(f"{self.name} Please enter a valid number for your budget!")
+            return
+
+        df = pd.read_csv("cars.csv")
+        df.columns = df.columns.str.strip()
+        matching_cars = df[(df["Price"] <= budget) & (df["Status"] == "For Sale")]
+
+        if matching_cars.empty:
+            print(f"No Match Found!")
+        else:
+            print("\n--- Matching Cars in Your Budget ---")
+            for _, row in matching_cars.iterrows():
+                print(
+                    f"{row['Car Name']} - {row['Model Year']} Model only for ₹{row['Price']}."
+                )
+            print(
+                f"\nTotal {len(matching_cars)} cars found in your budget!"
+            )
+
+cars = Cars()

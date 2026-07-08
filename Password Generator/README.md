@@ -47,6 +47,13 @@ python MyPasswords.py
 Initializing Password Generator ...
 Setup is completed.
 **********************************************************************
+Enter the length of the password you would like to generate: 3
+**********************************************************************
+Password Length must be greater than 4
+**********************************************************************
+Enter the length of the password you would like to generate: 
+Please enter a valid Digit length.
+**********************************************************************
 Enter the length of the password you would like to generate: 12
 ************************************************----------------------
 Generating password ...

@@ -33,11 +33,11 @@ You only need **Python 3.x** installed on your system. This project relies entir
 ### Installation & Running
 
 1. Clone or download the repository files.
-2. Save the script as `password_generator.py`.
+2. Save the script as `MyPasswords.py`.
 3. Open your terminal or command prompt, navigate to the directory, and run:
 
 ```bash
-python password_generator.py
+python MyPasswords.py
 ```
 ## 🖥️ Output Preview
 ```

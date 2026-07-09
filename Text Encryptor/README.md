@@ -1,6 +1,6 @@
-# CipherSpeak 🔐
+# SymboLock 🔐
 
-CipherSpeak is a lightweight, terminal-based Python application that allows you to encrypt and decrypt text using a custom symbol-substitution cipher. It converts standard English text into a complex matrix of symbols, making it unreadable to the naked eye, and provides an exact decryption method to revert it back to normal text.
+SymboLock is a lightweight, terminal-based Python application that allows you to encrypt and decrypt text using a custom symbol-substitution cipher. It converts standard English text into a complex matrix of symbols, making it unreadable to the naked eye, and provides an exact decryption method to revert it back to normal text.
 
 ---
 

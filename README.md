@@ -1,4 +1,4 @@
-# 🐍 Python Projects Hub (`Prince1304/Python-Projects`)
+# 🐍 Python Projects Hub
 
 Welcome to my personal playground for Python development! This repository serves as a centralized hub housing an interactive collection of terminal-based applications, utility frameworks, and business management scripts. 
 

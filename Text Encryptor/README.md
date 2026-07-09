@@ -37,7 +37,7 @@ The tool maps standard letters to unique symbol configurations. For example:
 3. Run the script using Python:
 
 ```bash
-python textsecurity.py
+python SymboLock.py
 ```
 
 ## 🎮 Usage

@@ -2,7 +2,7 @@
 
 Gen-Z Mart is a console-based Retail Management and Point of Sale (POS) application built using Python. The application enables terminal-based storefront operations, including dynamic inventory tracking, multi-item cart checkouts, secure mock transaction processing (Cash/UPI), real-time stock reporting, and back-office restocking operations.
 
-## ✨ Features
+## ✨ Features 
 
 * **Interactive Menu System:** A looping control interface navigating between customer ordering, management logs, and inventory controls.
 * **Consolidated Order History ("One-Box" Tracking):** Bundles all items checked out in a single session into a unified transaction entry, calculating a rolling **Grand Store Revenue** across all sessions.

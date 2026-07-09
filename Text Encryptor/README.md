@@ -33,7 +33,7 @@ The tool maps standard letters to unique symbol configurations. For example:
 
 ### Running the Script
 1. Clone or download the repository to your local machine.
-2. Open your terminal or command prompt and navigate to the directory containing `textsecurity.py`.
+2. Open your terminal or command prompt and navigate to the directory containing `SymboLock.py`.
 3. Run the script using Python:
 
 ```bash

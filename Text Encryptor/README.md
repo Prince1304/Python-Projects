@@ -38,3 +38,17 @@ The tool maps standard letters to unique symbol configurations. For example:
 
 ```bash
 python textsecurity.py
+```
+
+## 🎮 Usage
+When you run the application, you will be greeted with an interactive menu:
+```
+1. Encrypt text
+2. Decrypt text
+3. Exit
+Enter your choice:
+```
+
+* Press 1 to input a plain text string and receive its encrypted symbol counterpart.
+* Press 2 to paste encrypted symbols and instantly reveal the original message.
+* Press 3 to safely close the program.

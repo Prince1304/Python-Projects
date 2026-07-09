@@ -1,5 +1,5 @@
 # ☕ Gen-Z Cafe - Automated Billing & Kitchen Routing System
-
+ 
 Gen-Z Cafe is a console-based ordering, billing, and restaurant management script written in Python. It handles front-of-house customer interactions—including dynamic menu presentation, input validation, cart calculations, and payment tracking—while automatically routing order tickets to back-of-house kitchen displays with active table tracking.
 
 ## ✨ Features

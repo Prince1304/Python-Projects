@@ -22,7 +22,7 @@ The tool maps standard letters to unique symbol configurations. For example:
 
 ### Encryption Example
 * **Input:** `hello world`
-* **Output:** `#!^!_!_* \/\/or!_@!`
+* **Output:** `#!^!_!_* \/\/*|^!_@!`
 
 ---
 

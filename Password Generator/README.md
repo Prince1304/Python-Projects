@@ -13,7 +13,7 @@ A secure, interactive Python-based command-line tool that generates highly secur
 * **Regeneration Loop:** Generates a new password instantly at the press of a button, or allows you to exit smoothly.
 * **Visual Polish:** Clean, easy-to-read command-line interface with stylized borders and standard security reminders.
 
----
+--- 
 
 ## 🛠️ How It Works
 

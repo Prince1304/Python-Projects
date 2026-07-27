@@ -1,0 +1,55 @@
+import time as t
+import csv as c
+
+class budget:
+    Name = ''
+    MyBudget = 0
+    Budget_copy = 0
+    my_record = {
+    }
+
+    def __init__(self):
+        self.Name = str(input("Please Enter Your Good Name: "))
+        while True:
+            print("----- Expense Tracker -----")
+            print("1. Set Budget")
+            print("2. Add Expence")
+            print("3. Analyze Budget")
+            print("0. Exit \n")
+            Choice = int(input("Enter Your Choice: "))
+            if Choice == 0:
+                break
+            if Choice == 1:
+                self.setBudget()
+            elif Choice == 2:
+                self.addExpense()
+            elif Choice == 3:
+                self.analyse()
+            else:
+                print(f"{self.Name}, Please Enter Valid Choice.")
+
+    def setBudget(self):
+        self.MyBudget = int(input(f"{self.Name}, Enter Your Budget:"))
+        print(f"{self.MyBudget} Is Set For You!")
+        self.Budget_copy = self.MyBudget
+
+    def addExpense(self):
+        while True:
+            ask = str(input("Press Enter For 'Continue' Or S for 'Stop'"))
+            if ask == 's' or ask == 'S':
+                break
+            elif ask == '':
+                exp_type = input("Enter Your Expense Title: ")
+                exp_amount = int(input("Enter Your Expense: "))
+                self.my_record[exp_type]=exp_amount
+                self.MyBudget -= exp_amount
+                print(f"{self.Name}, Your {self.MyBudget} Available Out of {self.Budget_copy}")
+
+    def analyse(self):
+        print(f"{self.Name}, Your Set Budget Is ${self.Budget_copy}.")
+        calculation = self.Budget_copy
+        for key,value in self.my_record.items():
+            calculation = calculation - value
+            print(f"{key}:{value}--{calculation}")
+            
+Budget = budget()

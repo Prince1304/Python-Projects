@@ -54,8 +54,6 @@ class budget:
                 self.my_record[exp_type]=exp_amount
                 self.MyBudget -= exp_amount
                 low = int(self.Budget_copy*5/100)
-                print(self.MyBudget)
-                print(low)
                 print(f"{self.Name}, Your {self.MyBudget} Available Out of {self.Budget_copy}")
                 if self.MyBudget == 0:
                     print("Your Budget Limit Execute!")

@@ -37,6 +37,7 @@ class budget:
             print(f"You Already Set Budget Now You Update!")
             self.MyBudget = int(input(f"{self.Name}, Enter Your Budget:"))
             print(f"{self.MyBudget} Is Update For You!")
+            self.MyBudget += self.MyBudget
             self.Budget_copy = self.MyBudget
 
     def addExpense(self):

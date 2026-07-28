@@ -15,6 +15,7 @@ class budget:
             print("1. Set Budget")
             print("2. Add Expence")
             print("3. Analyze Budget")
+            print("4. Download Report")
             print("0. Exit \n")
             Choice = int(input("Enter Your Choice: "))
             if Choice == 0:
@@ -25,6 +26,8 @@ class budget:
                 self.addExpense()
             elif Choice == 3:
                 self.analyse()
+            elif Choice == 4:
+                self.report()
             else:
                 print(f"{self.Name}, Please Enter Valid Choice.")
 
@@ -71,5 +74,8 @@ class budget:
             print(f"{key}:{value}")
         print(f"Your Total Spend: {calculation}")
         print(f"Available Budget: {self.MyBudget}")
+
+    def report(self):
+        pass
             
 Budget = budget()

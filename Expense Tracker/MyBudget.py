@@ -35,7 +35,10 @@ class budget:
 
     def addExpense(self):
         while True:
-            ask = str(input("Press Enter For 'Continue' Or S for 'Stop'"))
+            ask = ''
+            if self.MyBudget == 0:
+                print(f"{self.Name}, Please Set Your Budget First!")
+                self.setBudget()
             if ask == 's' or ask == 'S':
                 break
             elif ask == '':
@@ -44,6 +47,7 @@ class budget:
                 self.my_record[exp_type]=exp_amount
                 self.MyBudget -= exp_amount
                 print(f"{self.Name}, Your {self.MyBudget} Available Out of {self.Budget_copy}")
+                ask = str(input("Press Enter For 'Continue' Or S for 'Stop'"))
 
     def analyse(self):
         print(f"{self.Name}, Your Set Budget Is ${self.Budget_copy}.")

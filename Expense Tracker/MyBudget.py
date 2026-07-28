@@ -62,7 +62,8 @@ class budget:
         print(f"{self.Name}, Your Set Budget Is ${self.Budget_copy}.")
         calculation = self.Budget_copy
         for key,value in self.my_record.items():
-            calculation = calculation - value
-            print(f"{key}:{value}--{calculation}")
+            calculation += value
+            print(f"{key}:{value}")
+        print(f"Your Total Spend:{calculation}")
             
 Budget = budget()

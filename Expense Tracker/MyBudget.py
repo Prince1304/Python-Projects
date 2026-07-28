@@ -34,8 +34,8 @@ class budget:
         self.Budget_copy = self.MyBudget
 
     def addExpense(self):
+        ask = ''
         while True:
-            ask = ''
             if self.MyBudget == 0:
                 print(f"{self.Name}, Please Set Your Budget First!")
                 self.setBudget()

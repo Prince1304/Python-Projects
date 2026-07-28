@@ -50,9 +50,10 @@ class budget:
                 print(self.MyBudget)
                 print(low)
                 print(f"{self.Name}, Your {self.MyBudget} Available Out of {self.Budget_copy}")
-                if self.MyBudget >= low:
+                if self.MyBudget == 0:
+                    print("Your Budget Limit Execute!")
+                elif self.MyBudget <= low:
                     print("Your Budget Low")
-                else:
                     ask = str(input("Press Enter For 'Continue' Or S for 'Stop'"))
 
     def analyse(self):

@@ -76,6 +76,10 @@ class budget:
         print(f"Available Budget: {self.MyBudget}")
 
     def report(self):
-        pass
+        with open('report.csv', 'w', newline='') as file:
+            writer = c.writer(file)
+            writer.writerow(["Expense Title", "Expense Amount"])
+            for key, value in self.my_record.items():
+                writer.writerow([key, value])
             
 Budget = budget()

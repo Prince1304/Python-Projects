@@ -46,8 +46,14 @@ class budget:
                 exp_amount = int(input("Enter Your Expense: "))
                 self.my_record[exp_type]=exp_amount
                 self.MyBudget -= exp_amount
+                low = int(self.Budget_copy*5/100)
+                print(self.MyBudget)
+                print(low)
                 print(f"{self.Name}, Your {self.MyBudget} Available Out of {self.Budget_copy}")
-                ask = str(input("Press Enter For 'Continue' Or S for 'Stop'"))
+                if self.MyBudget >= low:
+                    print("Your Budget Low")
+                else:
+                    ask = str(input("Press Enter For 'Continue' Or S for 'Stop'"))
 
     def analyse(self):
         print(f"{self.Name}, Your Set Budget Is ${self.Budget_copy}.")

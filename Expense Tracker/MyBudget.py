@@ -53,7 +53,7 @@ class budget:
                 if self.MyBudget == 0:
                     print("Your Budget Limit Execute!")
                 elif self.MyBudget <= low:
-                    print("Your Budget Low")
+                    print("Your Budget is Low!")
                     ask = str(input("Press Enter For 'Continue' Or S for 'Stop'"))
 
     def analyse(self):

@@ -55,6 +55,8 @@ class budget:
                 elif self.MyBudget <= low:
                     print("Your Budget is Low!")
                     ask = str(input("Press Enter For 'Continue' Or S for 'Stop'"))
+                else:
+                    ask = str(input("Press Enter For 'Continue' Or S for 'Stop'"))
 
     def analyse(self):
         print(f"{self.Name}, Your Set Budget Is ${self.Budget_copy}.")

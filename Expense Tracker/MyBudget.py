@@ -29,9 +29,15 @@ class budget:
                 print(f"{self.Name}, Please Enter Valid Choice.")
 
     def setBudget(self):
-        self.MyBudget = int(input(f"{self.Name}, Enter Your Budget:"))
-        print(f"{self.MyBudget} Is Set For You!")
-        self.Budget_copy = self.MyBudget
+        if self.MyBudget <= 0:
+            self.MyBudget = int(input(f"{self.Name}, Enter Your Budget:"))
+            print(f"{self.MyBudget} Is Set For You!")
+            self.Budget_copy = self.MyBudget
+        else:
+            print(f"You Already Set Budget Now You Update!")
+            self.MyBudget = int(input(f"{self.Name}, Enter Your Budget:"))
+            print(f"{self.MyBudget} Is Update For You!")
+            self.Budget_copy = self.MyBudget
 
     def addExpense(self):
         ask = ''

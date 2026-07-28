@@ -67,7 +67,7 @@ class budget:
 
     def analyse(self):
         print(f"{self.Name}, Your Set Budget Is ${self.Budget_copy}.")
-        calculation = self.Budget_copy
+        calculation = 0
         for key,value in self.my_record.items():
             calculation += value
             print(f"{key}:{value}")

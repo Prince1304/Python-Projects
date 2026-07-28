@@ -64,6 +64,7 @@ class budget:
         for key,value in self.my_record.items():
             calculation += value
             print(f"{key}:{value}")
-        print(f"Your Total Spend:{calculation}")
+        print(f"Your Total Spend: {calculation}")
+        print(f"Available Budget: {self.MyBudget}")
             
 Budget = budget()
